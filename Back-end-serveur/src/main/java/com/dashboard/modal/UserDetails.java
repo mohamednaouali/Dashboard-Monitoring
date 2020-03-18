@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UserRequestDetails {
+public class UserDetails {
 
     private String device;
     private String country;

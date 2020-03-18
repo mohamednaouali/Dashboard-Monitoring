@@ -1,17 +1,17 @@
 package com.dashboard.aop;
 
-import com.dashboard.Producer;
-import com.dashboard.modal.UserRequestDetails;
+import com.dashboard.modal.UserDetails;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.util.Properties;
 
 public class Producer_AOP {
-    final static Logger logger = LoggerFactory.getLogger(Producer.class);
+    final static Logger logger = LoggerFactory.getLogger(Producer_AOP.class);
     public static void main(String[] args) {
         //----------> Config  kafka Producer
         Properties properties = new Properties();
@@ -21,7 +21,7 @@ public class Producer_AOP {
         //----------> Create kafka Producer
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
         //----------> Create  Producer record
-        UserRequestDetails user = new UserRequestDetails();
+        UserDetails user = new UserDetails();
         user.setCountry("tn");
         ProducerRecord<String,String > record =
                 new ProducerRecord("userDetails", user.toString());

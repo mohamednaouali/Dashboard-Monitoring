@@ -1,7 +1,6 @@
 package com.dashboard.aop;
 
-import com.dashboard.Producer;
-import com.dashboard.modal.UserRequestDetails;
+import com.dashboard.modal.UserDetails;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -24,8 +23,8 @@ import java.util.Properties;
 @Aspect
 @Component
 public class Consumer_AOP {
-    final static Logger logger = LoggerFactory.getLogger(Producer.class);
-    private UserRequestDetails userRequestDetails;
+    final static Logger logger = LoggerFactory.getLogger(Consumer_AOP.class);
+    private UserDetails userDetails;
     public Consumer_AOP() {
     }
     @Before("@annotation(com.dashboard.aop.CONS)")
