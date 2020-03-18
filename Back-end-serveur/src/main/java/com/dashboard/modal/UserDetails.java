@@ -12,6 +12,7 @@ import lombok.*;
 @ToString
 public class UserDetails {
 
+    private String userName;
     private String device;
     private String country;
     private String uri;
@@ -24,7 +25,7 @@ public class UserDetails {
     private String port;
     private StringBuffer url;
     private Long startRequest;
-    private String userName;
+
     }
 
 

@@ -1,5 +1,4 @@
 package com.dashboard.aop;
-
 import com.dashboard.modal.UserDetails;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -9,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
-
 public class Producer_AOP {
     final static Logger logger = LoggerFactory.getLogger(Producer_AOP.class);
     public static void main(String[] args) {
@@ -22,7 +20,10 @@ public class Producer_AOP {
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
         //----------> Create  Producer record
         UserDetails user = new UserDetails();
-        user.setCountry("tn");
+        user.setCountry("TN");
+        user.setUserName("Med");
+        user.setCity("sousse");
+        user.setDevice("Asus");
         ProducerRecord<String,String > record =
                 new ProducerRecord("userDetails", user.toString());
         //----------> Send data
@@ -33,10 +34,8 @@ public class Producer_AOP {
                 logger.info("2- Offset____:"+ recordMetadata.offset() +"\n");
                 logger.info( "3- TimeStamp____:"+ recordMetadata.timestamp() +"\n");
                 logger.info("4- Partition____:"+ recordMetadata.partition()+"\n");
-
             } else {
                 logger.error("Error while Producing data ",e);
-
             }
         });
         producer.flush();
